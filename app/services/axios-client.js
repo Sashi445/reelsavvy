@@ -10,6 +10,6 @@ export const instance = (() => {
   }
   return axios.create({
     baseURL: url,
-    timeout: 1000,
+    timeout: 10000,
   });
 })();

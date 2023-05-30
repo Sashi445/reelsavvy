@@ -37,8 +37,6 @@ export const EarlyAccess = () => {
                 setMessage("Thank you for showing interest in our product we will notify you when we launch our product!");
             }
         } catch (error) {
-            console.log(error);
-            console.log(error.message);
             if (error.request.status === 400) {
                 const data = error.response.data;
                 setMessage(data.info);
