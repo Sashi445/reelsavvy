@@ -10,7 +10,7 @@ import {
 
 export default function Home() {
   return (
-    <main className='text-white bg-black snap-y snap-mandatory w-full h-screen overflow-y-scroll'>
+    <main className='snap-y snap-mandatory w-full h-screen overflow-y-scroll'>
       {/* <div className='fixed top-0 w-full flex py-4 px-5 border'>
         <div>ReelSavvy</div>
         <div className='grow'></div>
@@ -20,19 +20,21 @@ export default function Home() {
           </nav>
         </div>
       </div> */}
-      <section id='' className='w-full h-screen snap-start'>
+      <section id='' className='w-full h-screen snap-start bg-yellow-400'>
         <Intro />
       </section>
-      <section className='w-full h-screen snap-start'>
+      <section className='w-full h-screen snap-start bg-green-400'>
         <Feature1 />
       </section>
-      <section className='w-full h-screen snap-start'>
+      <section className='w-full h-screen snap-start bg-blue-600'>
         <Feature2 />
       </section>
-      <section className=' w-full h-screen snap-start'>
+      <section className=' w-full h-screen snap-start bg-red-500'>
         <Feature3 />
       </section>
-      <section id='early-access' className='w-full h-screen snap-start'>
+      <section
+        id='early-access'
+        className='w-full h-screen snap-start bg-blue-400'>
         <EarlyAccess />
       </section>
     </main>

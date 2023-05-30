@@ -5,7 +5,7 @@ export const Feature1 = () => {
 
     useEffect(() => {
         Lottie.loadAnimation({
-            container: document.getElementById("lottie-player"),
+            container: document.getElementById("lottie-player-1"),
             autoplay: true,
             loop: true,
             renderer: 'svg',
@@ -14,9 +14,13 @@ export const Feature1 = () => {
     }, [])
 
     return (
-        <div>
-            Feature1;
-            <div className="border h-[150px] w-[150px]" id="lottie-player"></div>
+        <div className="w-full h-full flex flex-col md:flex-row items-center justify-center">
+            <div className="text-center">
+                Explore a curated list of movies
+                suggested by your friends,
+                all in one place.
+            </div>
+            <div className="h-[150px] w-[150px]" id="lottie-player-1"></div>
         </div>
     );
 }

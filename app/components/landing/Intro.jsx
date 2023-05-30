@@ -1,22 +1,10 @@
-import { Typography } from "@cred/neopop-web/lib/components";
-import { FontVariant, colorPalette } from "@cred/neopop-web/lib/primitives";
-
-
 export const Intro = () => {
     return (
-        <div className="h-full w-full flex items-center justify-between p-10 border">
+        <div className="h-full w-full flex items-center justify-between p-10">
             <div>
-                {/* <Typography {...FontVariant.HeadingBold14} color={...colorPalette.popWhite[500]} > */}
-                {
-                    `Don't know what to watch for this weekend?`
-                }
-                {/* </Typography> */}
-                <p>
-                    Can&apos;t recall the movie your friend suggested recently?
-                </p>
-                <p>
-                    {/* Don’t worry we’ve figured it out for you : 0 */}
-                </p>
+                Don&apos;t know what to watch for this weekend?
+                Can&apos;t recall the movie your friend suggested recently?
+                Don&apos;t worry we&apos;ve figured it out for you.
             </div>
             <div>
                 {/* <Image src={''} alt="someimage" height={100} width={100} /> */}

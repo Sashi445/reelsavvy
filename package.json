@@ -9,13 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@cred/neopop-web": "^1.0.0",
     "@react-email/button": "^0.0.8",
     "@react-email/container": "^0.0.8",
     "@react-email/html": "^0.0.4",
     "@react-email/render": "^0.0.7",
     "@react-email/text": "^0.0.5",
     "autoprefixer": "10.4.14",
+    "axios": "^1.4.0",
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.4",
     "lottie-web": "^5.12.0",
