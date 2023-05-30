@@ -20,6 +20,7 @@ const getDeviceType = () => {
 export const EarlyAccess = () => {
     const [message, setMessage] = useState("");
     const [email, setEmail] = useState("");
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         // make backend call for early access support
