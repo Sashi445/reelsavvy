@@ -46,34 +46,35 @@ export const EarlyAccess = () => {
         setEmail("");
     }
 
-    return (<div className="w-full h-full grid grid-cols-1 md:grid-cols-2 items-center justify-center">
-        <div className="text-center ">
-            <div>
-                So what are you waiting for?
-            </div>
-            <div>
-                signup for early access
-            </div>
+    return (<div className="max-w-[1440px] h-full text-white p-5 md:p-10 flex flex-col items-center justify-center">
+        <div className="text-center text-[24px] md:text-[32px] leading-[136%] my-5 md:my-10">
+            So what are you waiting for?
+            Go sign up for <span className="text-[#8631e5]">early access</span> &#x2728;
         </div>
-        <div>
-            {
-                !message ?
-                    <form onSubmit={handleSubmit}>
-                        <div>
-                            <div>
-                                <label htmlFor="user-email">Enter your email here</label>
-                            </div>
-                            <input type="email" id="user-email" placeholder="someone@example.com" required value={email} onChange={(e) => setEmail(e.target.value)} />
-                        </div>
-                        <div>
-                            <button type="submit">Get Early access</button>
-                        </div>
-                    </form>
-                    :
-                    <div>
-                        {message}
+        <div className="w-full">
+            <form onSubmit={handleSubmit}>
+                <div className="w-full flex flex-col md:flex-row items-center justify-center gap-3">
+                    <div className="w-full md:w-[450px]">
+                        <input className="w-full px-4 py-3 bg-black border rounded-md border-white text-white focus:outline-none" type="email" id="user-email" placeholder="someone@example.com" required value={email} onChange={(e) => setEmail(e.target.value)} />
                     </div>
-            }
+                    <div className="">
+                        <button className="rounded-full md:rounded-md border border-white text-white hover:bg-white hover:text-black px-3 md:px-4  py-2 md:py-2" type="submit">Get Early access</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div className="mt-[60px]">
+            Made with &#x2764;
+        </div>
+        <div className="mt-8">
+            <div className="text-center mb-5">Follow us on</div>
+            <div className="flex items-center justify-center gap-4">
+                {
+                    [1, 2, 3, 4].map((e, i) => <div className="p-2 border" key={i}>
+
+                    </div>)
+                }
+            </div>
         </div>
     </div>);
 }

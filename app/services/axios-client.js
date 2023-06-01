@@ -1,7 +1,6 @@
 import axios from "axios";
 
 export const instance = (() => {
-  console.log(process.env.ENV, typeof process.env.ENV);
   let url = "https://movie-app-backend-02nl.onrender.com/api/";
   if (process.env.ENV === "PROD") {
     const url = "https://movie-app-backend-02nl.onrender.com/api/";
