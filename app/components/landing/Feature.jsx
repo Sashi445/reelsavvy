@@ -9,7 +9,7 @@ export const Feature = ({
     text = "abc *#acb* fdkj*#db* dskj",
     lottieUrl = "https://res.cloudinary.com/dcjfrnxqn/raw/upload/v1685444744/enlightened_uki0p9.json",
     reverse = false,
-    highlightColor = "#FFDE66",
+    highlightColor = "",
     landing = false
 }) => {
     useEffect(() => {
@@ -28,7 +28,7 @@ export const Feature = ({
                 <div className="text-center md:text-start basis-1/2 font-medium text-[24px] md:text-[32px]  leading-[136%] px-5 md:px-[60px]">
                     {!landing ?
                         <>
-                            {text.split("*").map((token, ind) => token[0] === '#' ? <span key={ind} className={`text-[${highlightColor}]`}>{token.substring(1)}</span> : token)}
+                            {text.split("*").map((token, ind) => token[0] === '#' ? <span key={ind} style={{ color: highlightColor }} >{token.substring(1)}</span> : token)}
                         </>
                         :
                         <>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { instance } from "./../../services/axios-client";
+import { SocialIcon } from "react-social-icons";
 
 const getDeviceType = () => {
     const ua = navigator.userAgent;
@@ -20,12 +21,34 @@ const getDeviceType = () => {
 export const EarlyAccess = () => {
     const [message, setMessage] = useState("");
     const [email, setEmail] = useState("");
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
+
+    const socialIcons = [
+        {
+            id: 1,
+            url: 'https://instagram.com'
+        },
+        {
+            id: 2,
+            url: 'https://twitter.com'
+        },
+        {
+            id: 3,
+            url: 'https://linkedin.com'
+        },
+        {
+            id: 4,
+            url: 'https://youtube.com'
+        }
+    ];
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         // make backend call for early access support
         // console.log(instance);
         const device = getDeviceType();
+        setLoading(true);
         try {
             const res = await instance.post('earlyaccess', {
                 email,
@@ -41,8 +64,11 @@ export const EarlyAccess = () => {
                 const data = error.response.data;
                 setMessage(data.info);
             }
+            else {
+                setError(error.message);
+            }
         }
-
+        setLoading(false);
         setEmail("");
     }
 
@@ -51,30 +77,52 @@ export const EarlyAccess = () => {
             So what are you waiting for?
             Go sign up for <span className="text-[#8631e5]">early access</span> &#x2728;
         </div>
-        <div className="w-full">
-            <form onSubmit={handleSubmit}>
-                <div className="w-full flex flex-col md:flex-row items-center justify-center gap-3">
-                    <div className="w-full md:w-[450px]">
-                        <input className="w-full px-4 py-3 bg-black border rounded-md border-white text-white focus:outline-none" type="email" id="user-email" placeholder="someone@example.com" required value={email} onChange={(e) => setEmail(e.target.value)} />
+        <div className="w-full flex items-center justify-center">
+            {
+                loading ? <>
+                    <div
+                        class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                        role="status">
+                        <span
+                            class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+                        >Loading...</span
+                        >
                     </div>
-                    <div className="">
-                        <button className="rounded-full md:rounded-md border border-white text-white hover:bg-white hover:text-black px-3 md:px-4  py-2 md:py-2" type="submit">Get Early access</button>
-                    </div>
-                </div>
-            </form>
+                </> : <>
+                    {
+                        !message ? <form className="grow" onSubmit={handleSubmit}>
+                            <div className="w-full flex flex-col md:flex-row items-center justify-center gap-3">
+                                <div className="w-full md:w-[450px]">
+                                    <input className="w-full px-3 md:px-4  py-2 md:py-2 bg-black border rounded-md border-white text-white focus:outline-none" type="email" id="user-email" placeholder="someone@example.com" required value={email} onChange={(e) => setEmail(e.target.value)} />
+                                </div>
+                                <div className="">
+                                    <button className="
+                                    rounded-full md:rounded-md 
+                                    border border-white 
+                                    bg-white text-black
+                                    px-3 md:px-4  
+                                    py-2 md:py-2" type="submit">Get Early access</button>
+                                </div>
+                            </div>
+                        </form> : <div className={`w-full py-4 border ${!error ? 'border-[#1FC87F] text-[#1FC87F]' : 'border-[#F05E4B] text-[#F05E4B]'
+                            } rounded-lg text-center`}>{message}</div>
+                    }
+                </>
+            }
         </div>
-        <div className="mt-[60px]">
+        <div className="my-[60px] text-2xl">
             Made with &#x2764;
         </div>
         <div className="mt-8">
             <div className="text-center mb-5">Follow us on</div>
             <div className="flex items-center justify-center gap-4">
                 {
-                    [1, 2, 3, 4].map((e, i) => <div className="p-2 border" key={i}>
-
-                    </div>)
+                    socialIcons.map((e) => <SocialIcon style={{
+                        height: '32px',
+                        width: '32px'
+                    }} url={e.url} key={e.id} />)
                 }
             </div>
         </div>
-    </div>);
+    </div >);
 }

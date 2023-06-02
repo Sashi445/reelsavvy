@@ -1,7 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import { EarlyAccess, Feature } from "./components/landing";
 import { DM_Sans, Pacifico } from "next/font/google";
+import { useRouter } from "next/router";
 
 const dmSans = DM_Sans({ subsets: ["latin"], weight: "500" });
 const pacifico = Pacifico({ subsets: ["latin"], weight: "400" });
@@ -36,16 +38,23 @@ export default function Home() {
     },
   ];
 
+  // const router = useRouter();
+
+  // const handleClick = (e) => {
+  //   e.preventDefault();
+  //   // router.replace("#early-access");
+  // };
+
   return (
     <main
       className={`snap-y snap-mandatory w-full h-screen overflow-y-scroll bg-black text-white p-5 md:p-10 ${dmSans.className}`}>
-      <div className='z-10 absolute top-0 left-0 right-0 w-full p-5 md:p-10'>
-        <div className='max-w-[1440px] flex items-center justify-between'>
+      <div className='bg-black z-10 absolute top-0 left-0 right-0 w-full p-5 md:p-10 flex items-center justify-center'>
+        <div className='margin-auto max-w-[1440px] w-full flex items-center justify-between'>
           <div className={`${pacifico.className} text-[24px] leading-[136%]`}>
-            ReelSavvy
+            <a href=''>ReelSavvy</a>
           </div>
           <div className='border border-white text-white hover:bg-white hover:text-black py-2 px-4 rounded-full text-center text-[14px] leading-[136%]'>
-            Get Early Access
+            <a href={"#early-access"}>Get Early Access</a>
           </div>
         </div>
       </div>
@@ -67,7 +76,9 @@ export default function Home() {
           />
         </section>
       ))}
-      <section id='early-access' className='w-full h-screen snap-start '>
+      <section
+        id='early-access'
+        className='w-full h-screen snap-start flex items-center justify-center'>
         <EarlyAccess />
       </section>
     </main>
