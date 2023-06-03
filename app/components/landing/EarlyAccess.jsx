@@ -27,19 +27,19 @@ export const EarlyAccess = () => {
     const socialIcons = [
         {
             id: 1,
-            url: 'https://instagram.com'
+            url: 'https://instagram.openinapp.co/tryreelsavvy'
         },
         {
             id: 2,
-            url: 'https://twitter.com'
+            url: 'https://twitter.openinapp.co/tryreelsavvy'
         },
         {
             id: 3,
-            url: 'https://linkedin.com'
+            url: 'https://linkedin.openinapp.co/tryreelsavvy'
         },
         {
             id: 4,
-            url: 'https://youtube.com'
+            url: 'https://youtube.openinapp.co/tryreelsavvy'
         }
     ];
 
